@@ -8,7 +8,7 @@ package exocube;
 import java.util.Scanner;
 
 public class ExoCube {
-    
+
     public static void main(String[] args) {
         // TODO code application logic here
         Cube c1 = new Cube();
@@ -34,8 +34,7 @@ public class ExoCube {
         }
         while (askLenght(c1)) {
         }
-        
-        
+
         System.out.println(c1.toString());
 
     }
@@ -47,19 +46,17 @@ public class ExoCube {
         System.out.println("Couleur");
         System.out.println("-------");
         System.out.println("Entrez les valeurs (0-255) pour : ");
-        System.out.print("Red    :");
+        System.out.print("Red    : ");
         red = keyb.nextInt();
-        System.out.println();
-        System.out.print("Green  :");
+        System.out.print("Green  : ");
         green = keyb.nextInt();
-        System.out.println();
-        System.out.print("Blue   :");
+        System.out.print("Blue   : ");
         blue = keyb.nextInt();
-        System.out.println();
 
         try {
             c.setColor(red, green, blue);
             System.out.println("Merci, nouvelle couleur : " + c.getColor());
+            System.out.println();
             return (false);
         } catch (NotAColorException e) {
             return (true);
@@ -79,6 +76,7 @@ public class ExoCube {
         try {
             c.setLenght(lenght);
             System.out.println("Merci, nouvelle longueur : " + c.getLenght());
+            System.out.println();
             return (false);
         } catch (NotPositiveException e) {
             return (true);
@@ -98,6 +96,7 @@ public class ExoCube {
         try {
             c.setName(name);
             System.out.println("Merci, nouveau nom : " + c.getName());
+            System.out.println();
             return (false);
         } catch (StringToLongOrShortException e) {
             return (true);
