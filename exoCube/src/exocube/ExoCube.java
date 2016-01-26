@@ -28,12 +28,9 @@ public class ExoCube {
         }
         System.out.println(c1.toString());
 
-        while (askName(c1)) {
-        }
-        while (askColor(c1)) {
-        }
-        while (askLenght(c1)) {
-        }
+        while (askName(c1));
+        while (askColor(c1));
+        while (askLenght(c1));
 
         System.out.println(c1.toString());
 
@@ -43,22 +40,29 @@ public class ExoCube {
         int red, green, blue;
         Scanner keyb = new Scanner(System.in);
 
-        System.out.println("Couleur");
-        System.out.println("-------");
-        System.out.println("Entrez les valeurs (0-255) pour : ");
-        System.out.print("Red    : ");
-        red = keyb.nextInt();
-        System.out.print("Green  : ");
-        green = keyb.nextInt();
-        System.out.print("Blue   : ");
-        blue = keyb.nextInt();
-
+        try {
+            System.out.println("Couleur");
+            System.out.println("-------");
+            System.out.println("Entrez les valeurs (0-255) pour : ");
+            System.out.print("Red    : ");
+            red = keyb.nextInt();
+            System.out.print("Green  : ");
+            green = keyb.nextInt();
+            System.out.print("Blue   : ");
+            blue = keyb.nextInt();
+        } catch (Exception e) {
+            System.out.println("oups");
+            return (true);
+        }
         try {
             c.setColor(red, green, blue);
             System.out.println("Merci, nouvelle couleur : " + c.getColor());
             System.out.println();
             return (false);
         } catch (NotAColorException e) {
+            return (true);
+        } catch (Exception e) {
+            System.out.println("oups");
             return (true);
         }
 
@@ -80,6 +84,9 @@ public class ExoCube {
             return (false);
         } catch (NotPositiveException e) {
             return (true);
+        } catch (Exception e) {
+            System.out.println("oups");
+            return (true);
         }
 
     }
@@ -99,6 +106,9 @@ public class ExoCube {
             System.out.println();
             return (false);
         } catch (StringToLongOrShortException e) {
+            return (true);
+        } catch (Exception e) {
+            System.out.println("oups");
             return (true);
         }
 
