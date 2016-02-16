@@ -13,8 +13,7 @@ public class Livre {
 
     @Override
     public String toString() {
-        return "Livre{" + "identifiant=" + identifiant + ", place=" + emplacement
-                + ", dateAchat=" + dateAchat + '}';
+        return identifiant + " : place=" + emplacement + ", dateAchat=" + dateAchat;
     }
 
     public Livre(String identifiant, String emplacement, String dateAchat) {
