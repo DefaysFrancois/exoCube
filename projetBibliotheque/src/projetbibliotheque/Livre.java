@@ -2,56 +2,54 @@ package projetbibliotheque;
 
 public class Livre {
 
-    private String identifiant;
-    private String emplacement;
-    private String dateAchat;
+    private static int count = 0;
+    private int id;     // id technique
+    private String titre;
+    private String auteur;
 
-    public String toCSV(String separateur) {
-        return (identifiant + separateur + emplacement
-                + separateur + dateAchat);
+    public Livre(String titre, String auteur) {
+        count++;
+        this.id = count;
+        this.titre = titre;
+        this.auteur = auteur;
+    }
+
+    Livre(int id, String titre, String auteur) {
+        if (id > count) {
+            count = id;
+        }
+        this.id = id;
+        this.titre = titre;
+        this.auteur = auteur;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public String getTitre() {
+        return titre;
+    }
+
+    public void setTitre(String titre) {
+        this.titre = titre;
+    }
+
+    public String getAuteur() {
+        return auteur;
+    }
+
+    public void setAuteur(String auteur) {
+        this.auteur = auteur;
+    }
+
+    public String toCsv() {
+        return id + ";" + titre + ";" + auteur;
     }
 
     @Override
     public String toString() {
-        return identifiant + " : place=" + emplacement + ", dateAchat=" + dateAchat;
-    }
-
-    public Livre(String identifiant, String emplacement, String dateAchat) {
-        this.identifiant = identifiant;
-        this.emplacement = emplacement;
-        this.dateAchat = dateAchat;
-    }
-
-    public Livre(String csvLine) {
-
-        this.identifiant = csvLine.split(";")[0];
-        this.emplacement = csvLine.split(";")[1];
-        this.dateAchat = csvLine.split(";")[2];
-
-    }
-
-    public String getIdentifiant() {
-        return identifiant;
-    }
-
-    public void setIdentifiant(String identifiant) {
-        this.identifiant = identifiant;
-    }
-
-    public String getEmplacement() {
-        return emplacement;
-    }
-
-    public void setEmplacement(String emplacement) {
-        this.emplacement = emplacement;
-    }
-
-    public String getDateAchat() {
-        return dateAchat;
-    }
-
-    public void setDateAchat(String dateAchat) {
-        this.dateAchat = dateAchat;
+        return "" + id + " | " + titre + " | " + auteur;
     }
 
 }
